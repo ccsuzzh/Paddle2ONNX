@@ -31,7 +31,7 @@ else
 fi
 
 wget $protobuf_url
-protobuf_svae_dir="$PWD/installed_protobuf"
-mkdir -p $protobuf_svae_dir
-tar -zxf $protobuf_tgz_name -C $protobuf_svae_dir
-export PATH=$protobuf_svae_dir/bin:${PATH}
+protobuf_save_dir="$PWD/installed_protobuf"
+mkdir -p $protobuf_save_dir
+tar -zxf $protobuf_tgz_name -C $protobuf_save_dir
+export PATH=$protobuf_save_dir/bin:${PATH}

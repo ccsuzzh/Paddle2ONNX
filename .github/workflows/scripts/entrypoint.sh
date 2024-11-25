@@ -45,8 +45,12 @@ if [[ -f "$failed_wheels" ]]; then
     exit 1
 fi
 
-# Remove useless *-linux*.whl; only keep manylinux*.whl
-rm -f dist/*-linux*.whl
+ls dist/*
 
-echo "Successfully build wheels:"
-find . -type f -iname "*manylinux*.whl"
+if [[ "$SYSTEM_NAME" == "CentOS" ]]; then
+    # Remove useless *-linux*.whl; only keep manylinux*.whl
+    rm -f dist/*-linux*.whl
+
+    echo "Successfully build wheels:"
+    find . -type f -iname "*manylinux*.whl"
+fi
