@@ -11,7 +11,7 @@ PY_VERSION=$1
 PLAT=$2
 SYSTEM_NAME=$3
 
-if [[ "$SYSTEM_NAME" == "CentOS" ]] then
+if [[ "$SYSTEM_NAME" == "CentOS" ]]; then
     export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
 elif [[ "$SYSTEM_NAME" == "Darwin" ]]; then
     export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/usr/local/lib
