@@ -40,11 +40,7 @@ PYTHON_COMMAND="/opt/python/${PY_VER}/bin/python"
 # Check if the Python executable exists, fallback for macOS
 if [[ ! -x "$PYTHON_COMMAND" ]]; then
     if [[ "$SYSTEM_NAME" == "Darwin" ]]; then
-        PYTHON_COMMAND=$(find /usr/local/bin /usr/bin /opt/homebrew/bin -name "python${PY_VERSION}" -type f 2>/dev/null | head -n 1)
-        if [[ -z "$PYTHON_COMMAND" ]]; then
-            echo "Python $PY_VERSION not found on macOS."
-            exit 1
-        fi
+        PYTHON_COMMAND=python${PY_VERSION}
         PIP_INSTALL_COMMAND="$PYTHON_COMMAND -m pip install --no-cache-dir -q"
     fi
 fi
