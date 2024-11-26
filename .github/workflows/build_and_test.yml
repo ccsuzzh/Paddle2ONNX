@@ -96,11 +96,14 @@ jobs:
         .\run.bat python
 
   build_on_macos:
+    # Use MACOSX_DEPLOYMENT_TARGET=12.0 to produce compatible wheel
+    env:
+      MACOSX_DEPLOYMENT_TARGET: "12.0"
     runs-on: macos-latest
     strategy:
       matrix:
         python-version: [ '3.8']
-        architecture: ['x86_64', 'arm64']
+        architecture: [ 'x64' ]
 
     steps:
       # Checkout the latest branch of Paddle2ONNX.
@@ -110,10 +113,10 @@ jobs:
           submodules: true
       
       # Setup Python
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Setup Python 3.8
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: '3.8'
       
       # Download protobuf
       - name: Download protobuf
