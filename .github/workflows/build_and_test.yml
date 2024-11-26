@@ -71,7 +71,6 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
-        architecture: ${{ matrix.architecture }}
     
     # Install Python dependencies
     - name: Install Python dependencies
@@ -115,7 +114,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-          architecture: ${{ matrix.architecture }}
       
       # Download protobuf
       - name: Download protobuf
