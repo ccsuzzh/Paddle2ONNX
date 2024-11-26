@@ -118,8 +118,8 @@ jobs:
       # Download protobuf
       - name: Download protobuf
         run: |
-          brew install wget
           source .github/workflows/scripts/download_protobuf.sh
+          protoc --version
 
       # Install Python dependencies
       - name: Install Python dependencies
@@ -130,6 +130,8 @@ jobs:
       # Build package
       - name: Build package
         run: |
+          export PATH="${{ github.workspace }}/installed_protobuf/bin:$PATH"
+          protoc --version
           python -m build --wheel
 
       # Install Paddle2ONNX
