@@ -2,9 +2,9 @@ name: Build and Test
 
 on:
   push:
-    branches: [ "release_mac" ]
+    branches: [ "develop" ]
   pull_request:
-    branches: [ "release_mac" ]
+    branches: [ "develop" ]
 
 permissions:
   contents: read
